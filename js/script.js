@@ -65,16 +65,26 @@ filterButtons.forEach((button) => {
   });
 });
 
-// Form ini membuka aplikasi email, bukan mengirim data ke server.
+
+// Form kontak dikirim melalui WhatsApp
 contactForm.addEventListener("submit", (event) => {
   event.preventDefault();
+
   const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("whatsapp").value.trim();
   const message = document.getElementById("message").value.trim();
-  const destination = "+628971796200"; // Ganti dengan nomor WhatsApp aktif milik kamu.
-  const subject = encodeURIComponent(`Pesan dari website portfolio - ${name}`);
-  const body = encodeURIComponent(`Nama: ${name}\nWhatsApp: ${email}\n\nPesan:\n${message}`);
-  window.location.href = `https://wa.me/${destination}?text=${body}`;
+
+  // Ganti dengan nomor WhatsApp tujuan
+  const nomorWA = "628971796200";
+
+  if (!name || !message) {
+    alert("Nama dan pesan wajib diisi.");
+    return;
+  }
+
+  const teksPesan = `Halo, saya ${name}.\n\n${message}`;
+  const url = `https://wa.me/${nomorWA}?text=${encodeURIComponent(teksPesan)}`;
+
+  window.open(url, "_blank");
 });
 
 function showToast(text) {
