@@ -69,12 +69,12 @@ filterButtons.forEach((button) => {
 contactForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
+  const email = document.getElementById("whatsapp").value.trim();
   const message = document.getElementById("message").value.trim();
-  const destination = "riyanmaulanaabdulhafidz@gmail.com"; // Ganti dengan email aktif milik kamu.
+  const destination = "+628971796200"; // Ganti dengan nomor WhatsApp aktif milik kamu.
   const subject = encodeURIComponent(`Pesan dari website portfolio - ${name}`);
-  const body = encodeURIComponent(`Nama: ${name}\nEmail: ${email}\n\nPesan:\n${message}`);
-  window.location.href = `mailto:${destination}?subject=${subject}&body=${body}`;
+  const body = encodeURIComponent(`Nama: ${name}\nWhatsApp: ${email}\n\nPesan:\n${message}`);
+  window.location.href = `https://wa.me/${destination}?text=${body}`;
 });
 
 function showToast(text) {
