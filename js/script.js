@@ -84,7 +84,7 @@ contactForm.addEventListener("submit", (event) => {
   const teksPesan = `Halo, saya ${name}.\n\n${message}`;
   const url = `https://wa.me/${nomorWA}?text=${encodeURIComponent(teksPesan)}`;
 
-  window.open(url, "_blank");
+  window.location.href = url;
 });
 
 function showToast(text) {
